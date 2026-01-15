@@ -1,37 +1,31 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="bg">
 <head>
     <title>EXODUS | THE MANIFESTO</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <meta name="description" content="EXODUS: Манифест за тези, които усещат как реалността се пропуква. Пач код за алгоритъма на живота.">
+    <meta name="keywords" content="Exodus, Манифест, Реалност, Пробуждане, Философия, Алгоритъм, Книга">
+    <meta name="author" content="EXODUS">
+    <link rel="canonical" href="https://exodus-manifesto.com" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exodus-manifesto.com">
+    <meta property="og:title" content="EXODUS | THE MANIFESTO">
+    <meta property="og:description" content="Светът не е това, което виждаш. Той е това, което генерираш.">
+    <meta property="og:image" content="https://exodus-manifesto.com/images/exodus_manifest.jpg">
+
     <style>
         :root { --bg-color: #ffffff; --text-color: #000000; --font-mono: 'Consolas', 'Monaco', 'Lucida Console', monospace; }
         html { scroll-behavior: smooth; }
-        
-        body { 
-            background-color: #fcfcfc;
-            /* КОМБИНИРАН ФОН: Фина решетка + лек шум за реализъм */
-            background-image: 
-                radial-gradient(circle, #000000 0.5px, transparent 0.5px), 
-                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-            background-size: 100px 100px, 30px 30px, 30px 30px;
-            background-attachment: fixed;
-            color: var(--text-color); 
-            font-family: var(--font-mono); 
-            margin: 0; 
-            display: flex; 
-        }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-mono); margin: 0; display: flex; }
         
         #header {
             width: 280px; height: 100vh; position: fixed; left: 0; top: 0;
             border-right: 1px solid #000; display: flex; flex-direction: column;
-            justify-content: center; align-items: flex-end; 
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            z-index: 10;
+            justify-content: center; align-items: flex-end; background: #fff; z-index: 10;
         }
-        
         #header h1 { font-size: 1.1em; margin-right: 20px; text-transform: uppercase; letter-spacing: 2px; }
         nav ul { list-style: none; padding: 0; margin: 0; }
         nav ul li { margin: 8px 0; }
@@ -40,26 +34,23 @@
 
         .lang-switch { margin-right: 20px; margin-top: 20px; border: 1px solid #000; padding: 5px 10px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
 
-        #main { margin-left: 280px; padding: 40px; max-width: 950px; position: relative; }
-        section { min-height: auto; border-bottom: 1px dashed #000; padding: 40px 0; overflow: hidden; }
-        h2 { font-size: 1em; border: 1px solid #000; display: inline-block; padding: 4px 12px; margin-bottom: 20px; background: #fff; }
+        #main { margin-left: 280px; padding: 40px; max-width: 950px; }
+        section { min-height: auto; border-bottom: 1px dashed #ccc; padding: 30px 0; overflow: hidden; }
+        h2 { font-size: 1em; border: 1px solid #000; display: inline-block; padding: 4px 12px; margin-bottom: 20px; }
         
         .mockup-right {
-            float: right; width: 320px; margin-left: 30px; margin-bottom: 10px;
-            border: 1px solid #000; padding: 10px; background: #fff;
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.05); /* Лека сянка за дълбочина */
+            float: right; width: 300px; margin-left: 30px; margin-bottom: 10px;
+            border: 1px solid #eee; padding: 5px;
         }
         .mockup-right img { width: 100%; height: auto; display: block; }
 
-        p { line-height: 1.7; margin-bottom: 15px; text-align: justify; font-size: 0.95em; }
+        p { line-height: 1.6; margin-bottom: 15px; text-align: justify; font-size: 0.95em; }
         p::before { content: "> "; font-weight: bold; }
-        
-        .highlight-box { border: 2px solid #000; padding: 25px; margin: 25px 0; background: rgba(255,255,255,0.9); font-size: 1em; }
+        .highlight-box { border: 1px solid #000; padding: 20px; margin: 20px 0; background: #fdfdfd; font-size: 0.9em; }
 
-        form { margin-top: 10px; border: 1px solid #000; padding: 30px; clear: both; background: #fff; }
-        input, textarea { width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; padding: 15px 0; font-family: var(--font-mono); outline: none; margin-bottom: 10px; font-size: 0.9em; }
-        button.button { background: #000; color: #fff; border: none; padding: 20px; cursor: pointer; width: 100%; margin-top: 15px; font-family: var(--font-mono); font-weight: bold; text-transform: uppercase; }
-        button.button:hover { background: #333; }
+        form { margin-top: 10px; border: 1px solid #000; padding: 25px; clear: both; }
+        input, textarea { width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; padding: 12px 0; font-family: var(--font-mono); outline: none; margin-bottom: 5px; font-size: 0.9em; }
+        button.button { background: #000; color: #fff; border: none; padding: 18px; cursor: pointer; width: 100%; margin-top: 15px; font-family: var(--font-mono); font-weight: bold; }
 
         .lang-bg { display: none; }
         .cursor { display: inline-block; width: 8px; height: 1.1em; background: #000; animation: blink 1s infinite; vertical-align: middle; }
@@ -67,9 +58,9 @@
 
         @media screen and (max-width: 980px) {
             body { flex-direction: column; }
-            #header { width: 100%; height: auto; position: relative; border-right: none; align-items: center; padding: 20px 0; }
+            #header { width: 100%; height: auto; position: relative; border-right: none; align-items: center; padding: 15px 0; border-bottom: 1px solid #000; }
             #main { margin-left: 0; padding: 20px; }
-            .mockup-right { float: none; width: 100%; margin: 0 0 30px 0; }
+            .mockup-right { float: none; width: 100%; margin: 0 0 20px 0; }
         }
     </style>
 </head>
@@ -112,30 +103,24 @@
         <section id="artifact">
             <h2>_THE_BOOK</h2>
             <div class="mockup-right">
-                <img src="images/exodus_manifest.jpg" alt="Exodus Book Mockup">
+                <img src="images/exodus_manifest.jpg" alt="Exodus: The Manifesto Book Cover">
             </div>
             <div class="lang-en">
                 <p><strong>00. THE_INTENTION</strong></p>
                 <p>In the beginning was not the word. In the beginning was The Intention. The world is no accident, but a project through which the Source achieves self-knowledge.</p>
                 <p>You are not just a body with an ID and a social role. You are a living thread, sent here to transmute raw experience into meaning.</p>
-                <p>Use this text as your prism of knowledge. Look through it and see how the world begins to reshape. Your awakening begins now.</p>
             </div>
             <div class="lang-bg">
                 <p><strong>00. НАМЕРЕНИЕТО</strong></p>
                 <p>В началото не беше словото. В началото беше Намерението. Светът не е случайност, а проект, чрез който Източникът постига себепознание.</p>
                 <p>Ти не си просто тяло с ЕГН и социална роля. Ти си жива нишка, изпратена тук, за да трансмутира суровия опит в смисъл.</p>
-                <p>Използвай този текст като своя призма на познанието. Погледни през него и виж как светът започва да се преоформя. Твоето пробуждане започва сега.</p>
             </div>
         </section>
 
         <section id="signal">
             <h2>_SEND_SIGNAL</h2>
-            <div class="lang-en">
-                <p>Establish a secure link to receive access instructions for the full archive.</p>
-            </div>
-            <div class="lang-bg">
-                <p>Установете защитена връзка, за да получите инструкции за достъп до пълния архив.</p>
-            </div>
+            <div class="lang-en"><p>Establish a secure link to receive access instructions for the full archive.</p></div>
+            <div class="lang-bg"><p>Установете защитена връзка, за да получите инструкции за достъп до пълния архив.</p></div>
 
             <form id="exodus-form" action="https://script.google.com/macros/s/AKfycbzvOLuPGiXkDegtnEHV8YsmdDRQPDX2YNmhxyYtsmIdNilvcRwodFFEAIGXwsBxH11S/exec" method="POST">
                 <input type="text" name="name" id="field-name" placeholder="[USER_IDENTIFIER]" required />
@@ -148,12 +133,10 @@
 
     <script>
         let currentLang = localStorage.getItem('exodus_lang') || 'en';
-        
         function applyLang(lang) {
             const enElems = document.querySelectorAll('.lang-en');
             const bgElems = document.querySelectorAll('.lang-bg');
             const btn = document.getElementById('lang-btn');
-            
             if (lang === 'bg') {
                 enElems.forEach(el => el.style.display = 'none');
                 bgElems.forEach(el => el.style.display = 'block');
@@ -172,13 +155,11 @@
                 document.getElementById('submit-btn').innerText = 'EXECUTE_SIGNAL_SEND';
             }
         }
-
         function toggleLang() {
             currentLang = (currentLang === 'en') ? 'bg' : 'en';
             localStorage.setItem('exodus_lang', currentLang);
             applyLang(currentLang);
         }
-
         applyLang(currentLang);
 
         const form = document.getElementById('exodus-form');
@@ -187,18 +168,9 @@
             const btn = document.getElementById('submit-btn');
             btn.innerText = (currentLang === 'en') ? "TRANSMITTING... PLEASE WAIT" : "ПРЕДАВАНЕ... МОЛЯ ИЗЧАКАЙТЕ";
             btn.disabled = true;
-
-            fetch(form.action, {
-                method: 'POST',
-                body: new URLSearchParams(new FormData(form)),
-                mode: 'no-cors'
-            }).then(() => { 
-                window.location.href = "thanks.html?lang=" + currentLang; 
-            }).catch(() => { 
-                alert("SIGNAL_ERROR"); 
-                btn.disabled = false; 
-                btn.innerText = (currentLang === 'en') ? "RETRY_EXECUTION" : "ПОВТОРЕН ОПИТ";
-            });
+            fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)), mode: 'no-cors' })
+            .then(() => { window.location.href = "thanks.html?lang=" + currentLang; })
+            .catch(() => { alert("SIGNAL_ERROR"); btn.disabled = false; });
         };
     </script>
 </body>
