@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="bg">
+<head>
+    <title>SYSTEM_ERROR | EXODUS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <style>
+        body { background: #000; color: #ff0000; font-family: 'Consolas', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; overflow: hidden; }
+        .error-box { border: 2px solid #ff0000; padding: 50px; background: rgba(255,0,0,0.1); box-shadow: 0 0 20px rgba(255,0,0,0.5); }
+        h1 { font-size: 1.5em; margin-bottom: 20px; text-transform: uppercase; }
+        p { font-size: 0.9em; margin-bottom: 25px; color: #ff8888; }
+        a { color: #fff; text-decoration: none; border: 1px solid #fff; padding: 10px 20px; text-transform: uppercase; }
+        a:hover { background: #fff; color: #000; }
+    </style>
+</head>
+<body>
+    <div class="error-box">
+        <h1>[!] SIGNAL_INTERRUPTED</h1>
+        <div id="err-en">
+            <p>Transmission failed. Connection to the Source lost.<br>Protocol Error: 404_SECURE_LINK_NOT_FOUND</p>
+            <a href="index.html">RETRY_PROTOCOL</a>
+        </div>
+        <div id="err-bg" style="display:none;">
+            <p>Предаването е прекъснато. Връзката с Източника е изгубена.<br>Протоколна грешка: 404_SECURE_LINK_NOT_FOUND</p>
+            <a href="index.html">ПОВТОРЕН_ПРОТОКОЛ</a>
+        </div>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('lang') === 'bg') {
+            document.getElementById('err-en').style.display = 'none';
+            document.getElementById('err-bg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
