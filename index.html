@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="bg">
+<html lang="en">
 <head>
-    <title>EXODUS_V2 | TERMINAL</title>
+    <title>EXODUS | THE MANIFESTO</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <style>
@@ -44,11 +44,16 @@
             font-size: 0.9em;
         }
         nav ul li a:hover { background: #000; color: #fff; }
-        #main { margin-left: 300px; padding: 50px; max-width: 700px; }
-        section { min-height: 80vh; border-top: 1px dashed #ccc; padding-top: 60px; }
+        #main { margin-left: 300px; padding: 50px; max-width: 750px; }
+        section { min-height: 80vh; border-bottom: 1px dashed #ccc; padding: 80px 0; }
         h2 { font-size: 1.1em; border: 1px solid #000; display: inline-block; padding: 5px 15px; margin-bottom: 30px; }
         p { line-height: 1.8; margin-bottom: 20px; text-align: justify; }
         p::before { content: "> "; font-weight: bold; }
+        
+        .highlight-box { border: 1px solid #000; padding: 25px; margin: 30px 0; background: #fdfdfd; line-height: 1.6; }
+        .mockup-container { text-align: center; margin: 40px 0; }
+        .mockup-container img { width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto; }
+        
         form { margin-top: 40px; border: 1px solid #000; padding: 30px; }
         input, textarea {
             width: 100%; border: none; border-bottom: 1px solid #000;
@@ -60,6 +65,7 @@
         }
         .cursor { display: inline-block; width: 8px; height: 1.2em; background: #000; animation: blink 1s infinite; vertical-align: middle; }
         @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+        
         @media screen and (max-width: 980px) {
             body { flex-direction: column; }
             #header { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #000; align-items: center; padding: 20px 0; }
@@ -69,38 +75,58 @@
 </head>
 <body>
     <header id="header">
-        <h1>EXODUS_V2<span class="cursor"></span></h1>
+        <h1>EXODUS<span class="cursor"></span></h1>
         <nav>
             <ul>
                 <li><a href="#intro">00_INTENTION</a></li>
-                <li><a href="#artifact">01_ARTIFACT</a></li>
+                <li><a href="#artifact">01_THE_BOOK</a></li>
                 <li><a href="#signal">02_SEND_SIGNAL</a></li>
             </ul>
         </nav>
     </header>
+
     <div id="main">
         <section id="intro">
             <h2>_INTENTION</h2>
-            <p>Ти не си играчът. Ти си операторът. Светът не е това, което виждаш, а това, което генерираш.</p>
-            <p>Този манифест е за тези, които усещат как реалността се пропуква. Код на пач, изпратен от моята версия към твоята.</p>
+            <div class="highlight-box">
+                <strong>[THE WORLD IS NOT WHAT YOU SEE. IT IS WHAT YOU GENERATE.]</strong><br><br>
+                This is not just a text. It is a MANIFEST for those who feel reality breaking. A patch code sent from my version to yours.
+            </div>
+            <p>DESTINY is code that can be rewritten.</p>
+            <p>FEAR is the algorithm of illusion.</p>
+            <p>CRISES are stress tests for your stability.</p>
+            <p>Stop treating the symptoms. Change the algorithm. Learn to recognize the illusion and take control.</p>
+            <p><strong>[IF REALITY IS A PROGRAM, WHO HOLDS THE KEY TO YOUR SESSION?]</strong></p>
         </section>
+
         <section id="artifact">
-            <h2>_THE_ARTIFACT</h2>
-            <p>Древните знания и езикът на бъдещето се сливат тук. Съдбата е код, който може да бъде пренаписан.</p>
-            <p>Страхът е просто алгоритъмът на илюзията. Научи се да разпознаваш матрицата и поеми контрола.</p>
+            <h2>_THE_BOOK</h2>
+            <div class="mockup-container">
+                <img src="images/exodus_manifest.jpg" alt="Exodus Manifesto 3D Mockup">
+            </div>
+            <p><strong>00. THE_INTENTION</strong></p>
+            <p>In the beginning was not the word. In the beginning was The Intention.</p>
+            <p>The world is no accident, but a project through which the Source achieves self-knowledge.</p>
+            <p>You are not just a body with an ID and a social role. You are a living thread, sent here to transmute raw experience into meaning.</p>
+            <p>This manifest is for those who feel that there is something "broken" in their daily life. For those understanding that their days are merely a recurring dream, and they are just actors in some stranger's, poorly written play.</p>
+            <p>What follows is not some random text, but a patch code, sent from my version to yours.</p>
+            <p>You will find no comfort here. Use this text as your prism of knowledge. Look through it and see how the world begins to reshape and suddenly everything will take on a different meaning.</p>
+            <p>Do not rush - read it again after some time. You will discover codes that are still elusive.</p>
+            <p>Your awakening begins now.</p>
         </section>
+
         <section id="signal">
             <h2>_SEND_SIGNAL</h2>
-            <p>Въведи своите координати, за да получиш инструкции за достъп до пълния архив.</p>
-            
+            <p>Establish a secure link to receive access instructions for the full archive.</p>
             <form id="exodus-form" action="https://script.google.com/macros/s/AKfycbzvOLuPGiXkDegtnEHV8YsmdDRQPDX2YNmhxyYtsmIdNilvcRwodFFEAIGXwsBxH11S/exec" method="POST">
-                <input type="text" name="name" placeholder="[IDENTIFIER]" required />
-                <input type="email" name="email" placeholder="[ENCRYPTED_EMAIL]" required />
-                <textarea name="message" rows="4" placeholder="[WHY_DO_YOU_SEEK_EXIT?]"></textarea>
+                <input type="text" name="name" placeholder="[USER_IDENTIFIER]" required />
+                <input type="email" name="email" placeholder="[SECURE_EMAIL]" required />
+                <textarea name="message" rows="4" placeholder="[STATE_YOUR_PURPOSE]"></textarea>
                 <button type="submit" id="submit-btn" class="button">EXECUTE_SIGNAL_SEND</button>
             </form>
         </section>
     </div>
+
     <script>
         const form = document.getElementById('exodus-form');
         form.onsubmit = function(e) {
@@ -109,16 +135,12 @@
             btn.innerText = "TRANSMITTING...";
             btn.disabled = true;
 
-            // Използваме FormData за автоматично събиране на name, email и message
             fetch(form.action, {
                 method: 'POST',
                 body: new URLSearchParams(new FormData(form)),
-                mode: 'no-cors' // Важно за Google Scripts
+                mode: 'no-cors'
             }).then(() => { 
-                // Вместо redirection, ако нямаш thanks.html, може просто да дадеш съобщение
-                btn.innerText = "SIGNAL_SENT_SUCCESSFULLY";
-                btn.style.background = "#28a745"; // Зелено за успех
-                form.reset(); 
+                window.location.href = "thanks.html"; 
             })
             .catch(() => { 
                 alert("SIGNAL_ERROR"); 
