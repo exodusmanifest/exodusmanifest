@@ -80,12 +80,14 @@
                     <div class="lang-en">
                         <p><strong>[THE WORLD IS NOT WHAT YOU SEE. IT IS WHAT YOU GENERATE.]</strong></p>
                         <p>This is a MANIFESTO for those who feel reality breaking. Born from a father-son conversation, stripped of noise and mysticism—leaving only the pure logic of the model.</p>
-                        <p>Inspired by Comfy-UI ... reality is a node-based workflow. Every interaction is a prompt, every outcome is a seed.</p>
+                        <p>Inspired by Comfy-UI ... reality is a node-based workflow. Every interaction is a prompt, every outcome is a seed. This archive contains the tools to regain control over the rendering.</p>
+                        <p>Hope you find the truth.</p>
                     </div>
                     <div class="lang-bg">
                         <p><strong>[СВЕТЪТ НЕ Е ТОВА, КОЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.]</strong></p>
-                        <p>Това е МАНИФЕСТ за тези, които усещат как реалността се пропуква. Проектът е лишен от шум и мистицизъм — остава само чистата логика на модела.</p>
-                        <p>Вдъхновени от Comfy-UI ... реалността е работна среда от възли.</p>
+                        <p>Това е МАНИФЕСТ за тези, които усещат как реалността се пропуква. Роден от разговор между баща и син, изчистен от шум и мистицизъм — оставяйки само чистата логика на модела.</p>
+                        <p>Вдъхновени от Comfy-UI ... реалността е работна среда от възли (nodes). Всяко взаимодействие е промпт, всеки резултат е seed. Този архив съдържа инструментите за връщане на контрола над рендерирането.</p>
+                        <p>Надявам се да намерите истината.</p>
                     </div>
                 </div>
                 <div class="intro-book"><img src="images/exodus_manifest.jpg" alt="Exodus Book"></div>
@@ -134,9 +136,10 @@
         const revolutBase = "https://revolut.me/vladissr4c?currency=EUR&amount=432&note=EXODUS_DIGITAL_FOR:";
         let currentLang = localStorage.getItem('exodus_lang') || 'en';
 
+        // ИЗПРАЩАНЕ НА ФОРМАТА
         document.getElementById('exodus-form').addEventListener('submit', function(e) {
             const version = document.querySelector('input[name="version"]:checked').value;
-            if (version === 'digital') return;
+            if (version === 'digital') return; 
 
             e.preventDefault();
             const form = e.target;
@@ -146,7 +149,7 @@
 
             fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
             .then(() => { 
-                window.location.href = "thanks.html"; // Името е коригирано тук
+                window.location.href = "thanks.html"; 
             })
             .catch(() => { 
                 submitBtn.disabled = false; 
