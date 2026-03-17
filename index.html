@@ -12,18 +12,16 @@
         /* SIDEBAR */
         #header { width: 320px; height: 100vh; position: fixed; left: 0; top: 0; border-right: 1px solid #000; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; background: #fff; z-index: 10; }
         
-        /* EXODUS TITLE - SMALLER & CLOSER TO NAV */
         #header h1 { 
             font-size: 1.15em; 
             margin-right: 30px; 
             text-transform: uppercase; 
             letter-spacing: 4px; 
             text-align: right; 
-            margin-bottom: 15px; /* Приближено до навигацията */
+            margin-bottom: 15px; 
             white-space: nowrap; 
         }
         
-        /* CURSOR/PROMPT ANIMATION */
         .cursor { display: inline-block; width: 8px; height: 1.1em; background: #000; margin-left: 6px; vertical-align: middle; animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
@@ -47,17 +45,34 @@
 
         /* INTERACTION BLOCK */
         .interaction-container { display: flex; gap: 60px; align-items: flex-start; margin-top: 40px; max-width: 1100px; flex-wrap: wrap; }
-        .selector-box { flex: 1; min-width: 320px; max-width: 450px; }
+        .selector-box { flex: 1; min-width: 320px; max-width: 500px; }
         .form-box { flex: 1; min-width: 320px; padding: 0; background: #fff; display: flex; flex-direction: column; }
 
+        /* TABLE ALIGNMENT FIX */
         .version-table { width: 100%; border: none; border-collapse: collapse; font-size: 0.85em; }
-        .version-table tr { border-bottom: 1px solid #eee; cursor: pointer; }
-        .version-table td { padding: 12px 5px; vertical-align: middle; }
-        .td-radio { width: 30px; }
-        .td-price { width: 100px; text-align: right; }
-        .price-box { border: 1px solid #000; padding: 3px 8px; display: inline-block; min-width: 70px; text-align: center; font-weight: bold; }
+        .version-table tr { border-bottom: 1px solid #eee; cursor: pointer; transition: background 0.2s; }
+        .version-table tr:hover { background: #f9f9f9; }
+        
+        .version-table td { 
+            padding: 15px 5px; 
+            vertical-align: middle; /* Центрира съдържанието вертикално в клетката */
+        }
 
-        /* BUTTON - INTEGRATED */
+        .td-radio { width: 30px; text-align: center; }
+        
+        /* Стилизиране на самия радио бутон за по-добро подравняване */
+        input[type="radio"] {
+            margin: 0;
+            cursor: pointer;
+            vertical-align: middle;
+            position: relative;
+            top: -1px; /* Фина настройка спрямо шрифта */
+        }
+
+        .td-price { width: 110px; text-align: right; }
+        .price-box { border: 1px solid #000; padding: 4px 10px; display: inline-block; min-width: 80px; text-align: center; font-weight: bold; }
+
+        /* BUTTONS */
         #action-container { display: flex; justify-content: center; width: 100%; margin-top: 20px; }
         .button { 
             background: #000; 
@@ -75,7 +90,12 @@
         }
         .button:hover { background: #fff; color: #000; }
 
-        input, textarea { width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; padding: 15px 0; font-family: var(--font-mono); outline: none; margin-bottom: 25px; font-size: 0.95em; box-sizing: border-box; }
+        input[type="text"], input[type="email"], textarea { 
+            width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; 
+            padding: 15px 0; font-family: var(--font-mono); outline: none; margin-bottom: 25px; 
+            font-size: 0.95em; box-sizing: border-box; 
+        }
+        
         .note-info { display: block; margin-top: 20px; font-size: 0.75em; line-height: 1.5; color: #666; border-left: 2px solid #000; padding-left: 15px; }
 
         footer { text-align: left; font-size: 10px; padding: 80px 0; color: rgba(0, 0, 0, 0.4); line-height: 2.8; border-top: 1px solid #eee; text-transform: uppercase; }
@@ -87,7 +107,6 @@
             #header h1 { text-align: center; margin-right: 0; margin-bottom: 10px; }
             #main { margin-left: 0; padding: 40px 24px; }
             .intro-grid, .interaction-container { flex-direction: column; gap: 40px; }
-            .button { max-width: 100%; }
         }
     </style>
 </head>
