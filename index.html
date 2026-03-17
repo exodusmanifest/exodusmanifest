@@ -4,58 +4,90 @@
     <title>EXODUS | THE MANIFESTO</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
     <style>
         :root { --bg-color: #ffffff; --text-color: #000000; --font-mono: 'Consolas', 'Monaco', 'Lucida Console', monospace; }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-mono); margin: 0; display: flex; }
         
-        #header { width: 280px; height: 100vh; position: fixed; left: 0; top: 0; border-right: 1px solid #000; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; background: #fff; z-index: 10; }
-        #header h1 { font-size: 1.1em; margin-right: 20px; text-transform: uppercase; letter-spacing: 2px; text-align: right; }
-        nav ul { list-style: none; padding: 0; margin: 0; }
-        nav ul li a { text-decoration: none; color: #000; padding: 8px 20px; display: block; font-size: 0.85em; }
-        nav ul li a:hover { background: #000; color: #fff; }
-
-        .lang-switch { margin-right: 20px; margin-top: 20px; border: 1px solid #000; padding: 5px 10px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
-
-        #main { margin-left: 280px; padding: 40px; max-width: 900px; position: relative; }
-        section { min-height: auto; border-bottom: 1px dashed #ccc; padding: 60px 0; overflow: hidden; }
-        h2 { font-size: 1em; border: 1px solid #000; display: inline-block; padding: 4px 12px; margin-bottom: 30px; background: #fff; }
+        /* SIDEBAR */
+        #header { width: 320px; height: 100vh; position: fixed; left: 0; top: 0; border-right: 1px solid #000; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; background: #fff; z-index: 10; }
         
-        .content-flex { display: flex; gap: 30px; align-items: stretch; }
-        .text-block { flex: 1; }
-        .mockup-wrap { width: 300px; display: flex; }
-        .mockup-wrap img { width: 100%; height: 100%; object-fit: cover; border: 1px solid #eee; }
-
-        p { line-height: 1.7; margin-bottom: 20px; text-align: justify; font-size: 1em; }
-        .manifesto-para { white-space: pre-line; margin-bottom: 30px; }
-
-        /* Подравняване на бутоните */
-        .acquisition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; align-items: stretch; }
-        .acq-item { border: 2px solid #000; padding: 20px; background: #fff; display: flex; flex-direction: column; justify-content: space-between; }
-        .acq-content { flex-grow: 1; }
+        /* EXODUS TITLE - SMALLER & CLOSER TO NAV */
+        #header h1 { 
+            font-size: 1.15em; 
+            margin-right: 30px; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            text-align: right; 
+            margin-bottom: 15px; /* Приближено до навигацията */
+            white-space: nowrap; 
+        }
         
-        .acq-item h3 { font-size: 0.85em; margin: 0 0 10px 0; border-bottom: 1px solid #000; padding-bottom: 5px; }
-        .acq-meta { font-size: 0.7em; line-height: 1.4; color: #777; margin-bottom: 10px; text-transform: uppercase; }
-        
-        button.button { background: #000; color: #fff; border: none; padding: 18px; cursor: pointer; width: 100%; margin-top: 15px; font-family: var(--font-mono); font-weight: bold; text-transform: uppercase; transition: 0.3s; }
-        button.button:hover { background: #00bb00; color: #fff; }
-
-        form { margin-top: 10px; border: 1px solid #000; padding: 25px; clear: both; background: #fff; }
-        input, textarea { width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; padding: 12px 0; font-family: var(--font-mono); outline: none; margin-bottom: 5px; font-size: 0.9em; }
-
-        footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid #000; text-align: center; font-size: 0.7em; letter-spacing: 1px; color: #666; }
-        .note-red { font-size: 0.6em; color: #ff0000; font-weight: bold; margin-top: 10px; display: block; text-transform: uppercase; }
-        
-        .lang-bg { display: none; }
-        .cursor { display: inline-block; width: 8px; height: 1.1em; background: #000; animation: blink 1s infinite; vertical-align: middle; }
+        /* CURSOR/PROMPT ANIMATION */
+        .cursor { display: inline-block; width: 8px; height: 1.1em; background: #000; margin-left: 6px; vertical-align: middle; animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
-        @media screen and (max-width: 980px) {
-            body { flex-direction: column; }
-            #header { width: 100%; height: auto; position: relative; border-right: none; align-items: center; padding: 15px 0; border-bottom: 1px solid #000; }
-            #main { margin-left: 0; padding: 20px; }
-            .acquisition-grid { grid-template-columns: 1fr; }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav ul li a { text-decoration: none; color: #000; padding: 10px 30px; display: block; text-align: right; font-size: 0.85em; letter-spacing: 1px; }
+        nav ul li a:hover { background: #000; color: #fff; }
+        
+        .lang-switch { margin-right: 30px; margin-top: 30px; border: 1px solid #000; padding: 6px 12px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
+
+        /* MAIN CONTENT */
+        #main { margin-left: 320px; padding: 60px 80px; width: 100%; box-sizing: border-box; }
+        section { border-bottom: 1px dashed #ccc; padding-bottom: 80px; margin-bottom: 40px; }
+        
+        h2 { font-size: 1em; border: 1px solid #000; display: inline-block; padding: 6px 16px; margin-bottom: 40px; background: #fff; letter-spacing: 2px; }
+        
+        .intro-grid { display: flex; gap: 60px; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap; }
+        .intro-text { flex: 1; min-width: 320px; max-width: 780px; font-size: 1.05em; line-height: 1.8; }
+        
+        .intro-book { width: 300px; flex-shrink: 0; }
+        .intro-book img { width: 100%; border: none; filter: grayscale(100%); }
+
+        /* INTERACTION BLOCK */
+        .interaction-container { display: flex; gap: 60px; align-items: flex-start; margin-top: 40px; max-width: 1100px; flex-wrap: wrap; }
+        .selector-box { flex: 1; min-width: 320px; max-width: 450px; }
+        .form-box { flex: 1; min-width: 320px; padding: 0; background: #fff; display: flex; flex-direction: column; }
+
+        .version-table { width: 100%; border: none; border-collapse: collapse; font-size: 0.85em; }
+        .version-table tr { border-bottom: 1px solid #eee; cursor: pointer; }
+        .version-table td { padding: 12px 5px; vertical-align: middle; }
+        .td-radio { width: 30px; }
+        .td-price { width: 100px; text-align: right; }
+        .price-box { border: 1px solid #000; padding: 3px 8px; display: inline-block; min-width: 70px; text-align: center; font-weight: bold; }
+
+        /* BUTTON - INTEGRATED */
+        #action-container { display: flex; justify-content: center; width: 100%; margin-top: 20px; }
+        .button { 
+            background: #000; 
+            color: #fff; 
+            border: 1px solid #000; 
+            padding: 16px 40px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-family: var(--font-mono); 
+            font-size: 0.8em; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: all 0.2s ease;
+        }
+        .button:hover { background: #fff; color: #000; }
+
+        input, textarea { width: 100%; border: none; border-bottom: 1px solid #000; background: transparent; padding: 15px 0; font-family: var(--font-mono); outline: none; margin-bottom: 25px; font-size: 0.95em; box-sizing: border-box; }
+        .note-info { display: block; margin-top: 20px; font-size: 0.75em; line-height: 1.5; color: #666; border-left: 2px solid #000; padding-left: 15px; }
+
+        footer { text-align: left; font-size: 10px; padding: 80px 0; color: rgba(0, 0, 0, 0.4); line-height: 2.8; border-top: 1px solid #eee; text-transform: uppercase; }
+
+        .lang-bg { display: none; }
+        
+        @media screen and (max-width: 1100px) {
+            #header { width: 100%; height: auto; position: relative; border-right: none; align-items: center; padding: 30px 0; border-bottom: 1px solid #000; }
+            #header h1 { text-align: center; margin-right: 0; margin-bottom: 10px; }
+            #main { margin-left: 0; padding: 40px 24px; }
+            .intro-grid, .interaction-container { flex-direction: column; gap: 40px; }
+            .button { max-width: 100%; }
         }
     </style>
 </head>
@@ -64,9 +96,8 @@
         <h1>EXODUS<span class="cursor"></span></h1>
         <nav>
             <ul>
-                <li><a href="#intro">00_INTENTION</a></li>
-                <li><a href="#artifact">01_THE_BOOK</a></li>
-                <li><a href="#signal">02_SEND_SIGNAL</a></li>
+                <li><a href="#intro" class="lang-en">00_INTENTION</a><a href="#intro" class="lang-bg">00_НАМЕРЕНИЕ</a></li>
+                <li><a href="#signal" class="lang-en">01_SEND_SIGNAL</a><a href="#signal" class="lang-bg">01_СИГНАЛ</a></li>
             </ul>
         </nav>
         <div class="lang-switch" id="lang-btn" onclick="toggleLang()">[ SWITCH_TO_BG ]</div>
@@ -74,112 +105,126 @@
 
     <div id="main">
         <section id="intro">
-            <h2>00_INTENTION</h2>
-            <div class="lang-en">
-                <p><strong>[THE WORLD IS NOT WHAT YOU SEE. IT IS WHAT YOU GENERATE.]</strong></p>
-                <p class="manifesto-para">This is not just a text. It is a MANIFESTO for those who feel reality breaking. 
-                If reality is a program, who holds the key to your session? 
-                This archive contains the tools to regain control over the rendering.
-                A patch code sent from my version to yours.</p>
-            </div>
-            <div class="lang-bg">
-                <p><strong>[СВЕТЪТ НЕ Е ТОВА, КОЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.]</strong></p>
-                <p class="manifesto-para">Това не е просто текст. Това е МАНИФЕСТ за тези, които усещат как реалността се пропуква. 
-                Ако реалността е програма, кой държи ключа за твоята сесия? 
-                Този архив съдържа инструментите за връщане на контрола над рендерирането.
-                Пач код, изпратен от моята версия към твоята.</p>
-            </div>
-        </section>
-
-        <section id="artifact">
-            <h2>01_THE_BOOK</h2>
-            <div class="content-flex">
-                <div class="text-block">
-                    <div class="lang-en"><p>The archive is ready. Establish the link below to secure the digital build.</p></div>
-                    <div class="lang-bg"><p>Архивът е готов. Установете връзка по-долу, за да си осигурите дигиталната версия.</p></div>
-                </div>
-                <div class="mockup-wrap"><img src="images/exodus_manifest.jpg" alt="Exodus: The Manifesto"></div>
-            </div>
-
-            <div class="acquisition-grid">
-                <div class="acq-item">
-                    <div class="acq-content">
-                        <div class="lang-en"><h3>SOFTWARE_VERSION</h3><div class="acq-meta">PDF + EPUB_BUILD [02.26.2026]</div><span class="note-red">! IMPORTANT: INCLUDE YOUR EMAIL IN PAYMENT NOTE</span></div>
-                        <div class="lang-bg"><h3>СОФТУЕРНА_ВЕРСИЯ</h3><div class="acq-meta">PDF + EPUB_ВЕРСИЯ [02.26.2026]</div><span class="note-red">! ВАЖНО: НАПИШЕТЕ ИМЕЙЛА СИ В БЕЛЕЖКАТА ПРИ ПЛАЩАНЕ</span></div>
+            <h2 class="lang-en">00_INTENTION</h2><h2 class="lang-bg">00_НАМЕРЕНИЕ</h2>
+            
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <div class="lang-en">
+                        <p><strong>[THE WORLD IS NOT WHAT YOU SEE. IT IS WHAT YOU GENERATE.]</strong></p>
+                        <p>This is a MANIFESTO for those who feel reality breaking. Born from a father-son conversation, stripped of noise and mysticism—leaving only the pure logic of the model.</p>
+                        <p>Inspired by Comfy-UI ... reality is a node-based workflow. Every interaction is a prompt, every outcome is a seed. This archive contains the tools to regain control over the rendering.</p>
+                        <p>Hope you find the truth.</p>
                     </div>
-                    <a href="https://revolut.me/vladissr4c?currency=EUR&amount=400&note=EXODUS_DIGITAL_ACCESS_EMAIL:" target="_blank" style="text-decoration: none;">
-                        <button class="button">> INITIALIZE_TRANSFER_4.00_EUR</button>
-                    </a>
-                </div>
-                <div class="acq-item">
-                    <div class="acq-content">
-                        <div class="lang-en"><h3>HARDWARE_HYBRID</h3><div class="acq-meta">Book + Digital Bundle</div><span class="note-red">! CLICK BELOW TO INITIATE CONTACT</span></div>
-                        <div class="lang-bg"><h3>ХАРДУЕРЕН_ХИБРИД</h3><div class="acq-meta">Книга + Дигитален пакет</div><span class="note-red">! КЛИКНЕТЕ ДОЛУ ЗА СВЪРЗВАНЕ</span></div>
+                    <div class="lang-bg">
+                        <p><strong>[СВЕТЪТ НЕ Е ТОВА, КОЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.]</strong></p>
+                        <p>Това е МАНИФЕСТ за тези, които усещат как реалността се пропуква. Проектът е лишен от шум и мистицизъм — остава само чистата логика на модела.</p>
+                        <p>Вдъхновени от Comfy-UI ... реалността е работна среда от възли. Всяко взаимодействие е промпт, всеки резултат е "seed". Този архив съдържа инструментите за връщане на контрола над рендерирането.</p>
+                        <p>Надявам се да намерите истината.</p>
                     </div>
-                    <a href="#signal" style="text-decoration: none;">
-                        <button class="button">> REQUEST_BUNDLE_SIGNAL_10.00_EUR</button>
-                    </a>
+                </div>
+                <div class="intro-book">
+                    <img src="images/exodus_manifest.jpg" alt="Exodus Book">
                 </div>
             </div>
-        </section>
 
-        <section id="signal">
-            <h2>02_SEND_SIGNAL</h2>
-            <form id="exodus-form" action="https://script.google.com/macros/s/AKfycbzvOLuPGiXkDegtnEHV8YsmdDRQPDX2YNmhxyYtsmIdNilvcRwodFFEAIGXwsBxH11S/exec" method="POST">
-                <input type="text" name="name" id="field-name" placeholder="[USER_IDENTIFIER]" required />
-                <input type="email" name="email" id="field-email" placeholder="[SECURE_EMAIL]" required />
-                <textarea name="message" id="field-msg" rows="3" placeholder="[STATE_YOUR_PURPOSE]"></textarea>
-                <button type="submit" id="submit-btn" class="button">EXECUTE_SIGNAL_SEND</button>
-            </form>
+            <div class="interaction-container" id="signal">
+                <div class="selector-box">
+                    <table class="version-table">
+                        <tr onclick="document.getElementById('v-digital').click();">
+                            <td class="td-radio"><input type="radio" id="v-digital" name="version" value="digital" checked onclick="updateForm()"></td>
+                            <td><span class="lang-en">SOFTWARE (PDF + EPUB)</span><span class="lang-bg">СОФТУЕР (PDF + EPUB)</span></td>
+                            <td class="td-price"><span class="price-box">4.32 EUR</span></td>
+                        </tr>
+                        <tr onclick="document.getElementById('v-hybrid').click();">
+                            <td class="td-radio"><input type="radio" id="v-hybrid" name="version" value="hybrid" onclick="updateForm()"></td>
+                            <td><span class="lang-en">HARDWARE (BOOK + SOFTWARE)</span><span class="lang-bg">ХАРДУЕР (КНИГА + СОФТУЕР)</span></td>
+                            <td class="td-price"><span class="price-box">8.64 EUR</span></td>
+                        </tr>
+                        <tr onclick="document.getElementById('v-contact').click();">
+                            <td class="td-radio"><input type="radio" id="v-contact" name="version" value="contact" onclick="updateForm()"></td>
+                            <td><span class="lang-en">JUST_CONTACT</span><span class="lang-bg">САМО_КОНТАКТ</span></td>
+                            <td class="td-price"><span class="price-box">FREE</span></td>
+                        </tr>
+                    </table>
+                    <div id="info-note" class="note-info"></div>
+                </div>
+
+                <div class="form-box">
+                    <form id="exodus-form" action="https://script.google.com/macros/s/AKfycbzvOLuPGiXkDegtnEHV8YsmdDRQPDX2YNmhxyYtsmIdNilvcRwodFFEAIGXwsBxH11S/exec" method="POST">
+                        <input type="text" name="name" id="field-name" placeholder="[USER_IDENTIFIER]" required />
+                        <input type="email" name="email" id="field-email" placeholder="[SECURE_EMAIL]" required />
+                        <textarea name="message" id="field-msg" rows="3" readonly></textarea>
+                        <div id="action-container"></div>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <footer>
-            <p>AUTHOR: #V1AD_TSVETKOV_0 | BUILD: 2026.02.26. [SIG_20]</p>
-            <p>&copy; 2026 EXODUS | THE MANIFESTO. [ SESSION_STABLE_0x1A02FF ]</p>
+            AUTHOR: #V1AD_TSVETKOV_0 | BUILD: 2026.03.17. [SIG_20]<br>
+            &copy; 2026 EXODUS | THE MANIFESTO. [ SESSION_STABLE_0x1A02FF ]
         </footer>
     </div>
 
     <script>
+        const priceDigital = "432"; 
+        const revolutBase = "https://revolut.me/vladissr4c?currency=EUR";
         let currentLang = localStorage.getItem('exodus_lang') || 'en';
+
+        function updateForm() {
+            const version = document.querySelector('input[name="version"]:checked').value;
+            const msgField = document.getElementById('field-msg');
+            const actionContainer = document.getElementById('action-container');
+            const infoNote = document.getElementById('info-note');
+            const isBg = (currentLang === 'bg');
+
+            if (version === 'digital') {
+                msgField.value = isBg ? "Заявка за софтуерно издание." : "Software edition request.";
+                msgField.readOnly = true;
+                infoNote.innerHTML = isBg ? `* Мейлът е задължителен за автоматично изпращане.` : `* Secure e-mail is mandatory for delivery.`;
+                actionContainer.innerHTML = `<a href="${revolutBase}&amount=${priceDigital}&note=EXODUS_DIGITAL_FOR:" target="_blank" style="width:100%;"><button type="button" class="button">> REVOLUT_TRANSFER_4.32_EUR</button></a>`;
+            } else if (version === 'hybrid') {
+                msgField.value = isBg ? "Заявка за хардуерен хибрид." : "Hardware Hybrid order.";
+                msgField.readOnly = false;
+                infoNote.innerHTML = isBg ? "* Цена за доставка се уточнява спрямо локация." : "* Shipping cost calculated based on location.";
+                actionContainer.innerHTML = `<button type="submit" class="button">${isBg ? 'ИЗПРАТИ_ЗАЯВКА' : 'SEND_ORDER_REQUEST'}</button>`;
+            } else {
+                msgField.value = "";
+                msgField.readOnly = false;
+                msgField.placeholder = isBg ? "[ВАШЕТО СЪОБЩЕНИЕ]" : "[STATE_YOUR_PURPOSE]";
+                infoNote.innerHTML = isBg ? "* Директен сигнал за контакт." : "* Direct signal for contact.";
+                actionContainer.innerHTML = `<button type="submit" class="button">${isBg ? 'ИЗПРАТИ_СИГНАЛ' : 'SEND_SIGNAL'}</button>`;
+            }
+        }
+
         function applyLang(lang) {
             const enElems = document.querySelectorAll('.lang-en');
             const bgElems = document.querySelectorAll('.lang-bg');
             const btn = document.getElementById('lang-btn');
+            
             if (lang === 'bg') {
                 enElems.forEach(el => el.style.display = 'none');
                 bgElems.forEach(el => el.style.display = 'block');
                 btn.innerText = '[ SWITCH_TO_EN ]';
-                document.getElementById('field-name').placeholder = '[ИДЕНТИФИКАТОР]';
-                document.getElementById('field-email').placeholder = '[ИМЕЙЛ]';
-                document.getElementById('field-msg').placeholder = '[ЦЕЛ_НА_ЗАПИТВАНЕТО]';
-                document.getElementById('submit-btn').innerText = 'ИЗПРАТИ_СИГНАЛ';
+                document.getElementById('field-name').placeholder = '[ПОТРЕБИТЕЛ]';
+                document.getElementById('field-email').placeholder = '[ЗАДЪЛЖИТЕЛЕН_МЕЙЛ]';
             } else {
                 enElems.forEach(el => el.style.display = 'block');
                 bgElems.forEach(el => el.style.display = 'none');
                 btn.innerText = '[ SWITCH_TO_BG ]';
                 document.getElementById('field-name').placeholder = '[USER_IDENTIFIER]';
                 document.getElementById('field-email').placeholder = '[SECURE_EMAIL]';
-                document.getElementById('field-msg').placeholder = '[STATE_YOUR_PURPOSE]';
-                document.getElementById('submit-btn').innerText = 'EXECUTE_SIGNAL_SEND';
             }
+            updateForm();
         }
+
         function toggleLang() {
             currentLang = (currentLang === 'en') ? 'bg' : 'en';
             localStorage.setItem('exodus_lang', currentLang);
             applyLang(currentLang);
         }
-        applyLang(currentLang);
 
-        const form = document.getElementById('exodus-form');
-        form.onsubmit = function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submit-btn');
-            btn.innerText = (currentLang === 'en') ? "TRANSMITTING..." : "ПРЕДАВАНЕ...";
-            btn.disabled = true;
-            fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)), mode: 'no-cors' })
-            .then(() => { window.location.href = "thanks.html?lang=" + currentLang; })
-            .catch(() => { window.location.href = "404.html?lang=" + currentLang; });
-        };
+        window.onload = function() { applyLang(currentLang); };
     </script>
 </body>
 </html>
