@@ -171,21 +171,29 @@
             if (activeCard.id === 'opt-soft') return;
 
             e.preventDefault();
-            const form = e.target;
+            const form = this;
             const btn = form.querySelector('.button');
             
             btn.innerText = (currentLang === 'bg') ? 'ОБРАБОТКА...' : 'PROCESSING...';
             btn.disabled = true;
 
-            fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
-            .then(() => { 
-                window.location.href = 'thanks.html?lang=' + currentLang;
-            })
-            .catch(() => { 
-                btn.innerText = (currentLang === 'bg') ? 'ГРЕШКА' : 'ERROR'; 
-                btn.disabled = false;
-                setTimeout(() => setMode(activeCard.id.replace('opt-', '')), 3000);
+            const formData = new URLSearchParams();
+            formData.append('email', document.getElementById('f-mail').value);
+            formData.append('name', document.getElementById('f-user').value);
+            formData.append('message', document.getElementById('f-msg').value);
+
+            // Изпращаме заявката
+            fetch(form.action, { 
+                method: 'POST', 
+                body: formData, 
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
+
+            // Пренасочваме директно след кратко забавяне, без да чакаме отговор (no-cors)
+            setTimeout(() => {
+                window.location.href = 'thanks.html?lang=' + currentLang;
+            }, 600);
         });
 
         function setMode(mode) {
