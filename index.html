@@ -112,7 +112,7 @@
             </section>
         </main>
     </div>
-    <footer>AUTHOR: #V1AD_TSVETKOV_0 | BUILD: 2026.03.20<br>© EXODUS | THE MANIFESTO. [ SESSION_STABLE ]</footer>
+    <footer>AUTHOR: V1AD_T$VET_K0de | BUILD: 2026.03.20<br>© EXODUS | THE MANIFESTO. [ SESSION_STABLE ]</footer>
 
     <script>
         let currentLang = 'bg';
@@ -120,7 +120,7 @@
 
         const content = {
             bg: {
-                manifest: `<b>СВЕТЪТ НЕ Е ТОВА, КOЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.</b>\n\nТова е МАНИФЕСТ за тези, които усещат как реалността се пропуква.\nВ тази книга разглеждам света през призмата на неговия бекенд.\nРоден от разговор между баща и син, изчистен от шум и мистицизъм —\nоставяйки само чистата логика на модела.\n\nВдъхновени от Comfy-UI... реалността е работна среда от възли (nodes).\nВсяко взаимодействие е промпт, всеки резултат е seed.\nТози архив съдържа инструментите за връщане на контрола над рендерирането.\n\nНадявам се да намерите истината.`,
+                manifest: `<b>СВЕТЪТ НЕ Е ТОВА, КОЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.</b>\n\nТова е МАНИФЕСТ за тези, които усещат как реалността се пропуква.\nВ тази книга разглеждам света през призмата на неговия бекенд.\nРоден от разговор между баща и син, изчистен от шум и мистицизъм —\nоставяйки само чистата логика на модела.\n\nВдъхновени от Comfy-UI... реалността е работна среда от възли (nodes).\nВсяко взаимодействие е промпт, всеки резултат е seed.\nТози архив съдържа инструментите за връщане на контрола над рендерирането.\n\nНадявам се да намерите истината.`,
                 noteSoft: "Имейлът е задължителен за доставка на цифровите файлове.",
                 noteHard: "Детайлите по доставка се уточняват допълнително спрямо локацията.",
                 noteSig: "Директна връзка с автора на манифеста.",
@@ -169,33 +169,49 @@
         document.getElementById('exodus-form').addEventListener('submit', function(e) {
             const activeCard = document.querySelector('.select-card.active');
             if (activeCard.id === 'opt-soft') return;
+
             e.preventDefault();
             const form = e.target;
             const btn = form.querySelector('.button');
+            
             btn.innerText = (currentLang === 'bg') ? 'ОБРАБОТКА...' : 'PROCESSING...';
             btn.disabled = true;
+
             fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
-            .then(() => { window.location.href = 'thanks.html?lang=' + currentLang; })
-            .catch(() => { btn.innerText = 'ERROR'; btn.disabled = false; });
+            .then(() => { 
+                window.location.href = 'thanks.html?lang=' + currentLang;
+            })
+            .catch(() => { 
+                btn.innerText = (currentLang === 'bg') ? 'ГРЕШКА' : 'ERROR'; 
+                btn.disabled = false;
+                setTimeout(() => setMode(activeCard.id.replace('opt-', '')), 3000);
+            });
         });
 
         function setMode(mode) {
             document.querySelectorAll('.select-card').forEach(el => el.classList.remove('active'));
             document.getElementById('opt-' + mode).classList.add('active');
+            
             const msg = document.getElementById('f-msg');
             const actionContainer = document.getElementById('action-container');
             const noteText = document.getElementById('note-text');
+            
             if(mode === 'soft') {
                 noteText.innerText = content[currentLang].noteSoft;
                 msg.value = content[currentLang].msgSoft;
                 msg.readOnly = true;
                 actionContainer.innerHTML = `<button type="button" class="button" onclick="window.open('${revolutBase}', '_blank')">${content[currentLang].btnSoft}</button>`;
-            } else {
-                noteText.innerText = (mode === 'hard') ? content[currentLang].noteHard : content[currentLang].noteSig;
-                msg.value = (mode === 'hard') ? content[currentLang].msgHard : "";
-                msg.placeholder = (mode === 'sig') ? content[currentLang].placeMsg : "";
+            } else if(mode === 'hard') {
+                noteText.innerText = content[currentLang].noteHard;
+                msg.value = content[currentLang].msgHard;
                 msg.readOnly = false;
-                actionContainer.innerHTML = `<button type="submit" class="button">${(mode === 'hard') ? content[currentLang].btnHard : content[currentLang].btnSig}</button>`;
+                actionContainer.innerHTML = `<button type="submit" class="button">${content[currentLang].btnHard}</button>`;
+            } else {
+                noteText.innerText = content[currentLang].noteSig;
+                msg.value = "";
+                msg.placeholder = content[currentLang].placeMsg;
+                msg.readOnly = false;
+                actionContainer.innerHTML = `<button type="submit" class="button">${content[currentLang].btnSig}</button>`;
             }
         }
 
@@ -208,10 +224,16 @@
             document.getElementById('f-user').placeholder = content[currentLang].placeUser;
             document.getElementById('f-mail').placeholder = content[currentLang].placeMail;
             updateIndex();
-            setMode(document.querySelector('.select-card.active').id.replace('opt-', ''));
+            
+            const active = document.querySelector('.select-card.active');
+            if(active) setMode(active.id.replace('opt-', ''));
         }
 
-        function toggleLang() { currentLang = (currentLang === 'bg') ? 'en' : 'bg'; applyLang(); }
+        function toggleLang() {
+            currentLang = (currentLang === 'bg') ? 'en' : 'bg';
+            applyLang();
+        }
+
         function updateIndex() {
             const body = document.getElementById('index-body');
             body.innerHTML = indexData.map(item => {
@@ -219,15 +241,19 @@
                 return `<tr><td class="index-num">${d[0]}.</td><td>${d[1]}</td><td class="index-desc">// ${d[2]}</td></tr>`;
             }).join('');
         }
+
         function syncNav() {
-            ['manifesto', 'system-index', 'acquire'].forEach((id, idx) => {
+            const sections = ['manifesto', 'system-index', 'acquire'];
+            sections.forEach((id, idx) => {
                 const el = document.getElementById(id);
                 if (el && window.scrollY >= el.offsetTop - 250) {
                     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                    document.getElementById('n-0' + (idx + 1)).classList.add('active');
+                    const navItem = document.getElementById('n-0' + (idx + 1));
+                    if(navItem) navItem.classList.add('active');
                 }
             });
         }
+
         window.onload = applyLang;
     </script>
 </body>
