@@ -8,58 +8,40 @@
         :root { --bg-color: #ffffff; --text-color: #000000; --font-mono: 'Consolas', 'Monaco', 'Lucida Console', monospace; }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-mono); margin: 0; display: flex; flex-direction: column; min-height: 100vh; font-size: 14px; }
-        
         #wrapper { display: flex; flex: 1; }
-
-        header { 
-            width: 320px; height: 100vh; position: fixed; left: 0; top: 0; 
-            border-right: 1px solid #000; display: flex; flex-direction: column; 
-            background: #fff; z-index: 1000; padding: 60px 0; box-sizing: border-box; 
-        }
+        header { width: 320px; height: 100vh; position: fixed; left: 0; top: 0; border-right: 1px solid #000; display: flex; flex-direction: column; background: #fff; z-index: 1000; padding: 60px 0; box-sizing: border-box; }
         .nav-content { text-align: right; width: 100%; }
         header h1 { font-size: 1.2em; text-transform: uppercase; letter-spacing: 4px; margin: 0; padding-right: 30px; cursor: pointer; }
         .version-label { font-size: 0.65em; opacity: 0.5; letter-spacing: 2px; margin-bottom: 40px; padding-right: 30px; }
-        
         .cursor { display: inline-block; width: 8px; height: 1.1em; background: #000; margin-left: 6px; animation: blink 1s infinite; vertical-align: middle; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
         .nav-links { display: flex; flex-direction: column; margin-top: 30px; }
         .nav-links a { text-decoration: none; color: #000; font-size: 0.75em; letter-spacing: 2px; text-transform: uppercase; padding: 15px 30px; transition: 0.2s; opacity: 0.4; }
         .nav-links a.active { opacity: 1; font-weight: bold; border-right: 5px solid #000; background: #f4f4f4; }
-
         .lang-nav { margin-top: 50px; padding-right: 30px; }
         .lang-nav button { background: none; border: 1px solid #000; cursor: pointer; padding: 8px 12px; font-family: var(--font-mono); font-size: 0.7em; }
-
         .l-en, .l-bg { display: none; }
-
         main { margin-left: 320px; padding: 80px 60px; flex: 1; box-sizing: border-box; }
         section { margin-bottom: 120px; position: relative; max-width: 900px; }
         section h2 { font-size: 0.9em; text-transform: uppercase; letter-spacing: 3px; border-bottom: 1px solid #000; padding-bottom: 10px; margin-bottom: 40px; cursor: pointer; }
-
         .manifesto-container { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
         .manifesto-text { flex: 1; min-width: 300px; line-height: 1.8; white-space: pre-line; }
         .manifesto-visual { flex: 0 0 280px; }
         .manifesto-visual img { width: 100%; display: block; filter: grayscale(100%); border: none; }
-
         .index-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
         .index-table td { padding: 12px 0; border-bottom: 1px dashed #ddd; vertical-align: top; }
         .index-num { width: 50px; font-weight: bold; }
         .index-desc { opacity: 0.5; padding-left: 20px; }
-
         .selection-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; max-width: 450px; }
         .select-card { border: 1px solid #ccc; padding: 15px 20px; text-align: left; cursor: pointer; font-size: 0.75em; transition: 0.2s; color: #666; display: flex; justify-content: space-between; align-items: center; }
         .select-card.active { border: 1px solid #000; background: #000; color: #fff; font-weight: bold; }
-
         .info-notes { font-size: 0.75em; opacity: 0.8; margin-bottom: 25px; border-left: 2px solid #000; padding: 5px 12px; min-height: 1.5em; max-width: 450px; }
-
         form { display: flex; flex-direction: column; gap: 15px; max-width: 450px; }
         input, textarea { border: 1px solid #000; padding: 12px; font-family: var(--font-mono); outline: none; background: transparent; font-size: 0.9em; width: 100%; box-sizing: border-box; }
         #action-container { width: 100%; margin-top: 10px; }
         .button { background: #000; color: #fff; border: 1px solid #000; padding: 20px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; text-align: left; width: 100%; font-family: var(--font-mono); }
         .button:hover { background: #fff; color: #000; }
-
         footer { margin-left: 320px; text-align: left; padding: 60px; font-size: 0.65em; opacity: 0.5; border-top: 1px solid #eee; }
-
         @media (max-width: 1100px) {
             header { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #000; padding: 40px 20px; text-align: center; }
             .nav-content { text-align: center; }
@@ -78,7 +60,6 @@
     </style>
 </head>
 <body onscroll="syncNav()">
-
     <div id="wrapper">
         <header>
             <div class="nav-content">
@@ -89,9 +70,7 @@
                     <a href="#system-index" id="n-02">02_<span class="l-bg">ИНДЕКС</span><span class="l-en">INDEX</span></a>
                     <a href="#acquire" id="n-03">03_<span class="l-bg">ПРИДОБИВАНЕ</span><span class="l-en">ACQUIRE</span></a>
                 </nav>
-                <div class="lang-nav">
-                    <button onclick="toggleLang()" id="lang-btn">[ SWITCH_TO_EN ]</button>
-                </div>
+                <div class="lang-nav"><button onclick="toggleLang()" id="lang-btn">[ SWITCH_TO_EN ]</button></div>
             </div>
         </header>
 
@@ -100,20 +79,15 @@
                 <h2 onclick="window.scrollTo(0,0)">[ 01_<span class="l-bg">МАНИФЕСТ</span><span class="l-en">MANIFESTO</span> ]</h2>
                 <div class="manifesto-container">
                     <div class="manifesto-text" id="manifest-content"></div>
-                    <div class="manifesto-visual">
-                        <img src="images/exodus_manifest.jpg" alt="EXODUS Visual">
-                    </div>
+                    <div class="manifesto-visual"><img src="images/exodus_manifest.jpg" alt="EXODUS Visual"></div>
                 </div>
             </section>
-
             <section id="system-index">
-                <h2 onclick="window.scrollTo(0,0)">[ 02_<span class="l-bg">ИНДЕКС</span><span class="l-en">INDEX</span> ]</h2>
+                <h2>[ 02_<span class="l-bg">ИНДЕКС</span><span class="l-en">INDEX</span> ]</h2>
                 <table class="index-table"><tbody id="index-body"></tbody></table>
             </section>
-
             <section id="acquire">
-                <h2 onclick="window.scrollTo(0,0)">[ 03_<span class="l-bg">ПРИДОБИВАНЕ</span><span class="l-en">ACQUIRE</span> ]</h2>
-                
+                <h2>[ 03_<span class="l-bg">ПРИДОБИВАНЕ</span><span class="l-en">ACQUIRE</span> ]</h2>
                 <div class="selection-list">
                     <div id="opt-soft" class="select-card active" onclick="setMode('soft')">
                         <div><span class="l-bg">СОФТУЕР (PDF + EPUB)</span><span class="l-en">SOFTWARE (PDF + EPUB)</span></div>
@@ -128,9 +102,7 @@
                         <span class="price">CONTACT</span>
                     </div>
                 </div>
-
                 <div class="info-notes" id="note-text"></div>
-
                 <form id="exodus-form" action="https://script.google.com/macros/s/AKfycbzvOLuPGiXkDegtnEHV8YsmdDRQPDX2YNmhxyYtsmIdNilvcRwodFFEAIGXwsBxH11S/exec" method="POST">
                     <input type="text" name="name" id="f-user" placeholder="[ ПОТРЕБИТЕЛ ]" required>
                     <input type="email" name="email" id="f-mail" placeholder="[ МЕЙЛ ]" required>
@@ -140,20 +112,15 @@
             </section>
         </main>
     </div>
-
-    <footer>
-        AUTHOR: #V1AD_TSVETKOV_0 | BUILD: 2026.03.20<br>
-        © EXODUS | THE MANIFESTO. [ SESSION_STABLE ]
-    </footer>
+    <footer>AUTHOR: #V1AD_TSVETKOV_0 | BUILD: 2026.03.20<br>© EXODUS | THE MANIFESTO. [ SESSION_STABLE ]</footer>
 
     <script>
         let currentLang = 'bg';
-        // Обновен линк с правилната бележка
-        const revolutBase = "https://revolut.me/vladissr4c?currency=EUR&amount=432&note=EXODUS_DIGITAL_FOR:(enter%20e-mail!)";
+        const revolutBase = "https://revolut.me/vladissr4c?currency=EUR&amount=432&note=EXODUS_DIGITAL_FOR:> enter%20e-mail:";
 
         const content = {
             bg: {
-                manifest: `<b>СВЕТЪТ НЕ Е ТОВА, КОЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.</b>\n\nТова е МАНИФЕСТ за тези, които усещат как реалността се пропуква. \nВ тази книга разглеждам света през призмата на неговия бекенд. \nРоден от разговор между баща и син, изчистен от шум и мистицизъм — \nоставяйки само чистата логика на модела.\n\nВдъхновени от Comfy-UI... реалността е работна среда от възли (nodes). \nВсяко взаимодействие е промпт, всеки резултат е seed.\nТози архив съдържа инструментите за връщане на контрола над рендерирането.\n\nНадявам се да намерите истината.`,
+                manifest: `<b>СВЕТЪТ НЕ Е ТОВА, КOЕТО ВИЖДАШ. ТОЙ Е ТОВА, КОЕТО ГЕНЕРИРАШ.</b>\n\nТова е МАНИФЕСТ за тези, които усещат как реалността се пропуква.\nВ тази книга разглеждам света през призмата на неговия бекенд.\nРоден от разговор между баща и син, изчистен от шум и мистицизъм —\nоставяйки само чистата логика на модела.\n\nВдъхновени от Comfy-UI... реалността е работна среда от възли (nodes).\nВсяко взаимодействие е промпт, всеки резултат е seed.\nТози архив съдържа инструментите за връщане на контрола над рендерирането.\n\nНадявам се да намерите истината.`,
                 noteSoft: "Имейлът е задължителен за доставка на цифровите файлове.",
                 noteHard: "Детайлите по доставка се уточняват допълнително спрямо локацията.",
                 noteSig: "Директна връзка с автора на манифеста.",
@@ -164,10 +131,10 @@
                 placeMail: "[ МЕЙЛ ]",
                 placeMsg: "[ ВАШИЯТ СИГНАЛ... ]",
                 msgSoft: "Заявка за софтуерно издание.",
-                msgHard: "Заявка за физическо копие."
+                msgHard: "Заявка за физическо копие. (Оставете детайли за доставка тук)"
             },
             en: {
-                manifest: `<b>THE WORLD IS NOT WHAT YOU SEE. IT IS WHAT YOU GENERATE.</b>\n\nThis is a MANIFESTO for those who feel the cracks in reality.\nIn this book, I examine the world through the lens of its backend.\nBorn from a dialogue between father and son, stripped of noise and mysticism — \nleaving only the pure logic of the model.`,
+                manifest: `<b>THE WORLD IS NOT WHAT YOU SEE. IT IS WHAT YOU GENERATE.</b>\n\nThis is a MANIFESTO for those who feel the cracks in reality.\nIn this book, I examine the world through the lens of its backend.\nBorn from a dialogue between father and son, stripped of noise and mysticism —\nleaving only the pure logic of the model.\n\nInspired by Comfy-UI... reality is a workspace of nodes.\nEvery interaction is a prompt, every result is a seed.\nThis archive contains the tools to regain control over the rendering.\n\nI hope you find the truth.`,
                 noteSoft: "Email is required for secure file delivery.",
                 noteHard: "Shipping details will be discussed based on your location.",
                 noteSig: "Direct connection with the author of the manifesto.",
@@ -178,7 +145,7 @@
                 placeMail: "[ EMAIL ]",
                 placeMsg: "[ YOUR SIGNAL... ]",
                 msgSoft: "Software edition request.",
-                msgHard: "Physical copy request."
+                msgHard: "Physical copy request. (Leave shipping details here)"
             }
         };
 
@@ -199,58 +166,36 @@
             { bg: ["13", "THE OPERATOR", "Разкриване на истинското лице зад конзолата."], en: ["13", "THE OPERATOR", "Revealing the true face behind the console."] }
         ];
 
-        // МЕЙЛ ЛОГИКА С ПРЕНАСОЧВАНЕ КЪМ THANKS.HTML
         document.getElementById('exodus-form').addEventListener('submit', function(e) {
             const activeCard = document.querySelector('.select-card.active');
-            // Ако е софтуер, бутонът е тип "button" и не тригърва submit. Но за застраховка:
             if (activeCard.id === 'opt-soft') return;
-
             e.preventDefault();
             const form = e.target;
             const btn = form.querySelector('.button');
-            
             btn.innerText = (currentLang === 'bg') ? 'ОБРАБОТКА...' : 'PROCESSING...';
             btn.disabled = true;
-
             fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
-            .then(() => { 
-                // Пренасочване след успешно пращане
-                window.location.href = 'thanks.html';
-            })
-            .catch(() => { 
-                btn.innerText = 'ERROR'; 
-                btn.disabled = false;
-                setTimeout(() => { setMode(activeCard.id.replace('opt-', '')); }, 3000);
-            });
+            .then(() => { window.location.href = 'thanks.html?lang=' + currentLang; })
+            .catch(() => { btn.innerText = 'ERROR'; btn.disabled = false; });
         });
 
         function setMode(mode) {
             document.querySelectorAll('.select-card').forEach(el => el.classList.remove('active'));
-            const targetId = 'opt-' + mode;
-            const card = document.getElementById(targetId);
-            if(card) card.classList.add('active');
-            
-            const isBg = currentLang === 'bg';
+            document.getElementById('opt-' + mode).classList.add('active');
             const msg = document.getElementById('f-msg');
             const actionContainer = document.getElementById('action-container');
             const noteText = document.getElementById('note-text');
-            
             if(mode === 'soft') {
                 noteText.innerText = content[currentLang].noteSoft;
                 msg.value = content[currentLang].msgSoft;
                 msg.readOnly = true;
                 actionContainer.innerHTML = `<button type="button" class="button" onclick="window.open('${revolutBase}', '_blank')">${content[currentLang].btnSoft}</button>`;
-            } else if(mode === 'hard') {
-                noteText.innerText = content[currentLang].noteHard;
-                msg.value = content[currentLang].msgHard;
-                msg.readOnly = false;
-                actionContainer.innerHTML = `<button type="submit" class="button">${content[currentLang].btnHard}</button>`;
             } else {
-                noteText.innerText = content[currentLang].noteSig;
-                msg.value = "";
-                msg.placeholder = content[currentLang].placeMsg;
+                noteText.innerText = (mode === 'hard') ? content[currentLang].noteHard : content[currentLang].noteSig;
+                msg.value = (mode === 'hard') ? content[currentLang].msgHard : "";
+                msg.placeholder = (mode === 'sig') ? content[currentLang].placeMsg : "";
                 msg.readOnly = false;
-                actionContainer.innerHTML = `<button type="submit" class="button">${content[currentLang].btnSig}</button>`;
+                actionContainer.innerHTML = `<button type="submit" class="button">${(mode === 'hard') ? content[currentLang].btnHard : content[currentLang].btnSig}</button>`;
             }
         }
 
@@ -263,16 +208,10 @@
             document.getElementById('f-user').placeholder = content[currentLang].placeUser;
             document.getElementById('f-mail').placeholder = content[currentLang].placeMail;
             updateIndex();
-            
-            const active = document.querySelector('.select-card.active');
-            if(active) setMode(active.id.replace('opt-', ''));
+            setMode(document.querySelector('.select-card.active').id.replace('opt-', ''));
         }
 
-        function toggleLang() {
-            currentLang = (currentLang === 'bg') ? 'en' : 'bg';
-            applyLang();
-        }
-
+        function toggleLang() { currentLang = (currentLang === 'bg') ? 'en' : 'bg'; applyLang(); }
         function updateIndex() {
             const body = document.getElementById('index-body');
             body.innerHTML = indexData.map(item => {
@@ -280,19 +219,15 @@
                 return `<tr><td class="index-num">${d[0]}.</td><td>${d[1]}</td><td class="index-desc">// ${d[2]}</td></tr>`;
             }).join('');
         }
-
         function syncNav() {
-            const sections = ['manifesto', 'system-index', 'acquire'];
-            sections.forEach((id, idx) => {
+            ['manifesto', 'system-index', 'acquire'].forEach((id, idx) => {
                 const el = document.getElementById(id);
                 if (el && window.scrollY >= el.offsetTop - 250) {
                     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                    const navItem = document.getElementById('n-0' + (idx + 1));
-                    if(navItem) navItem.classList.add('active');
+                    document.getElementById('n-0' + (idx + 1)).classList.add('active');
                 }
             });
         }
-
         window.onload = applyLang;
     </script>
 </body>
